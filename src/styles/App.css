@@ -1,0 +1,74 @@
+/* Base Application Styles */
+body {
+  color: #fff;
+  background: #222;
+}
+
+.index img {
+  margin: 40px auto;
+  border-radius: 4px;
+  background: #fff;
+  display: block;
+}
+
+.index .notice {
+  margin: 20px auto;
+  padding: 15px 0;
+  text-align: center;
+  border: 1px solid #000;
+  border-width: 1px 0;
+  background: #666;
+}
+
+#square {
+  top: 50px;
+  left: 50px;
+  position: relative;
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  border: 1px solid #fff;
+}
+
+#small-square {
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  height: 200px;
+  border: 1px solid #fff;
+  display: block;
+  position: relative;
+}
+
+#second-square {
+  top: 50px;
+  left: 50px;
+  position: absolute;
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #fff;
+  z-index: 5;
+}
+
+#second-small-square {
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  height: 150px;
+  border: 1px solid #fff;
+  display: block;
+  position: relative;
+}
+
+#third-square {
+  background: #222;
+  top: 50px;
+  left: 50px;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #fff;
+  z-index: 8;
+}

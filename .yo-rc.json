@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "tintar",
+    "style": "sass",
+    "postcss": false
+  }
+}
