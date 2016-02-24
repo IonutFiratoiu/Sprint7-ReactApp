@@ -35,6 +35,7 @@ class Point extends React.Component {
   getAbsolutePosition(index) {
     let x;
     let y;
+    let background = 'white';
 
     if(index%8<3){
       x=this.getRing(index).offset+(this.getRing(index).z*(this.getRing(index).size/2));
@@ -45,7 +46,7 @@ class Point extends React.Component {
       y=this.getRing(index).offset+(this.getRing(index).size/2);
     }
     if(index%8>3&&index%8<7){
-      x=this.getRing(index).offset+((this.getRing(index).z-4)*(this.getRing(index).size/2));
+      x=this.getRing(index).offset+this.getRing(index).size-((this.getRing(index).z-4)*(this.getRing(index).size/2));
       y=this.getRing(index).offset+(this.getRing(index).size);
     }
     if(index%8===7){
@@ -55,19 +56,46 @@ class Point extends React.Component {
 
     return {
       left: x,
-      top: y
+      top: y,
+      background: background
     }
   }
 
+  onClick() {
+    this.props.onClick(this.props.index);
+  }
+
   render() {
-    var style = this.getAbsolutePosition(this.props.index);
-    return (<div className="point" style={style}>{this.props.index}</div>)
+    let style = this.getAbsolutePosition(this.props.index);
+    return (<div className="point" onClick={this.onClick.bind(this)} style={style}></div>)
   }
 }
 
 class Board extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {player: 1};
+  }
+
+  onPointClick() {
+    console.log(this.state);
+
+    if (this.state.player === 1) {
+      this.getAbsolutePosition(this.index).background = 'red';
+    }
+  }
+
+
   render() {
+    const points = [];
+    for (let i=0; i<24; i++){
+      points.push(<Point onClick={this.onPointClick} index={i} key={i}/>)
+    }
+
     return (
+    <div className="index">
+      {points}
       <div id="square">
         <div id="small-square"></div>
         <div id="small-square"></div>
@@ -81,22 +109,15 @@ class Board extends React.Component {
           <div id="third-square"></div>
         </div>
       </div>
+    </div>
     )
   }
 }
 
 class AppComponent extends React.Component {
   render() {
-    const points = [];
-    for (let i=0; i<24; i++){
-      points.push(<Point index={i} key={i}/>)
-    }
-
     return (
-      <div className="index">
-        {points}
-        <Board/>
-      </div>
+      <Board/>
     );
   }
 }
