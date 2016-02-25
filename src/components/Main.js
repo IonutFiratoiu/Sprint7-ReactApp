@@ -109,7 +109,7 @@ class Board extends React.Component {
     let red = this.state.redPieces;
     let color = 'white';
     for (let i=0; i<24; i++){
-      for(let j=0; j<yellow.length; j++){
+      /*for(let j=0; j<yellow.length; j++){
         if(player===1){
           color = 'yellow';
         }
@@ -118,8 +118,8 @@ class Board extends React.Component {
         if(player===2){
           color = 'red';
         }
-      }
-      /*if(player===1 && yellow.indexOf(i) !== -1){
+      }*/
+      if(player===1 && yellow.indexOf(i) !== -1){
         console.log(player);
         console.log(yellow);
         color = 'yellow';
@@ -127,7 +127,7 @@ class Board extends React.Component {
         console.log(player);
         console.log(red);
         color = 'red';
-      }*/
+      }
       points.push(<Point color={color} onClick={this.onPointClick.bind(this)} index={i} key={i}/>)
     }
 
