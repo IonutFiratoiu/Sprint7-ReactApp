@@ -4,6 +4,12 @@ body {
   background: #222;
 }
 
+.info {
+  position: absolute;
+  left: 600px;
+  top: 200px;
+}
+
 .index img {
   margin: 40px auto;
   border-radius: 4px;
