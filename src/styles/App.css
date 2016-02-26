@@ -17,7 +17,7 @@ body {
   padding: 40px;
   left: 600px;
   top: 200px;
-  color: #FF6F00;
+  color: #BDBDBD;
   font: 20px bold;
   font-family: Helvetica Neue, Helvetica, Arial;
   background: rgba(49,49,49,1);
@@ -27,6 +27,20 @@ body {
   background: -o-linear-gradient(-45deg, rgba(49,49,49,1) 0%, rgba(0,0,0,1) 100%);
   background: -ms-linear-gradient(-45deg, rgba(49,49,49,1) 0%, rgba(0,0,0,1) 100%);
   background: linear-gradient(135deg, rgba(49,49,49,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.info a {
+  padding: 5px;
+  border: 2px solid #000;
+  background: #BDBDBD;
+  text-decoration: none;
+  color: #000;
+}
+
+.info a:hover {
+  background: #039BE5;
+  text-decoration: none;
+  color: #000;
 }
 
 .index img {
@@ -58,7 +72,7 @@ body {
   box-sizing: border-box;
   width: 400px;
   height: 400px;
-  border: 1px solid #FF6F00;
+  border: 1px solid #BDBDBD;
 }
 
 #small-square {
@@ -66,7 +80,7 @@ body {
   width: 50%;
   float: left;
   height: 200px;
-  border: 1px solid #FF6F00;
+  border: 1px solid #BDBDBD;
   display: block;
   position: relative;
 }
@@ -85,7 +99,7 @@ body {
   box-sizing: border-box;
   width: 300px;
   height: 300px;
-  border: 1px solid #FF6F00;
+  border: 1px solid #BDBDBD;
   z-index: 5;
 }
 
@@ -94,7 +108,7 @@ body {
   width: 50%;
   float: left;
   height: 150px;
-  border: 1px solid #FF6F00;
+  border: 1px solid #BDBDBD;
   display: block;
   position: relative;
 }
@@ -113,7 +127,7 @@ body {
   box-sizing: border-box;
   width: 200px;
   height: 200px;
-  border: 1px solid #FF6F00;
+  border: 1px solid #BDBDBD;
   z-index: 8;
 }
 
@@ -124,8 +138,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #E65100;
-  border: 2px #BF360C double;
+  background: #616161;
+  -moz-box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .4), inset -1px -1px 1px rgba(0, 0, 0, .4);
+  -webkit-box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .4), inset -1px -1px 1px rgba(0, 0, 0, .4);
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .4), inset -1px -1px 1px rgba(0, 0, 0, .4);
+  border: 2px #BDBDBD double;
   position: absolute;
   z-index: 12;
+  cursor: pointer;
 }

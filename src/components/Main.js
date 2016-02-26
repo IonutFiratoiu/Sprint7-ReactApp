@@ -36,7 +36,7 @@ class Point extends React.Component {
   getAbsolutePosition(index) {
     let x;
     let y;
-    let background = '';
+    const background = '';
 
     if(index%8<3){
       x=this.getRing(index).offset+(this.getRing(index).z*(this.getRing(index).size/2));
@@ -78,24 +78,38 @@ class Board extends React.Component {
 
   constructor() {
     super();
+    this.onRestartClick.bind(this);
     this.state = {
       player: 1,
-      yellow: 0,
+      blue: 0,
       black: 0,
-      yellowPieces: [],
+      bluePieces: [],
       blackPieces: [],
       width: 30,
       height: 30
     };
   }
 
+  onRestartClick(e) {
+    e.preventDefault();
+    this.setState({
+      player: 1,
+      blue: 0,
+      black: 0,
+      bluePieces: [],
+      blackPieces: [],
+      width: 30,
+      height: 30
+    });
+  }
+
   onPointClick(index) {
-    if(this.state.player === 1 && this.state.yellow !== 9 && this.state.yellowPieces.indexOf(index) === -1 && this.state.blackPieces.indexOf(index) === -1){
-      this.state.yellowPieces.push(index);
-      this.state.yellow = this.state.yellow + 1;
+    if(this.state.player === 1 && this.state.blue !== 9 && this.state.bluePieces.indexOf(index) === -1 && this.state.blackPieces.indexOf(index) === -1){
+      this.state.bluePieces.push(index);
+      this.state.blue = this.state.blue + 1;
       this.state.player = 2;
       this.forceUpdate();
-    }else if(this.state.player === 2 && this.state.black !== 9 && this.state.blackPieces.indexOf(index) === -1 && this.state.yellowPieces.indexOf(index) === -1){
+    }else if(this.state.player === 2 && this.state.black !== 9 && this.state.blackPieces.indexOf(index) === -1 && this.state.bluePieces.indexOf(index) === -1){
       this.state.blackPieces.push(index);
       this.state.black = this.state.black + 1;
       this.state.player = 1;
@@ -103,20 +117,20 @@ class Board extends React.Component {
     }
   }
 
-
   render() {
     const points = [];
-    let yellow = this.state.yellowPieces;
-    let black = this.state.blackPieces;
+    const blue = this.state.bluePieces;
+    const black = this.state.blackPieces;
     let color;
     for (let i=0; i<24; i++){
-      color = '#E65100';
-      if(yellow.indexOf(i) !== -1){
-        color = '#FFFF00';
+      color = '#616161';
+      if(blue.indexOf(i) !== -1){
+        color = '#039BE5';
       }
       if (black.indexOf(i) !== -1){
         color = '#000';
       }
+
       points.push(<Point color={color} onClick={this.onPointClick.bind(this)} index={i} key={i}/>)
     }
 
@@ -137,9 +151,10 @@ class Board extends React.Component {
         </div>
       </div>
       <div className="info">
-        <p><span style={{color: (this.state.player===1 ? 'yellow' : 'black' )}}>{(this.state.player===1 ? 'Yellow' : 'Black' )}</span> player</p>
+        <p><span style={{color: (this.state.player===1 ? '#039BE5' : 'black' )}}>{(this.state.player===1 ? 'Blue' : 'Black' )}</span> player</p>
         <p><span style={{color: 'black'}}>Black</span> Player: <span style={{color: 'black', font: 900}}>{this.state.black}</span></p>
-        <p><span style={{color: 'yellow'}}>Yellow</span> Player: <span style={{color: 'yellow', font: 900}}>{this.state.yellow}</span></p>
+        <p><span style={{color: '#039BE5'}}>Blue</span> Player: <span style={{color: '#039BE5', font: 900}}>{this.state.blue}</span></p>
+        <a href='#' onClick={this.onRestartClick.bind(this)}>Restart</a>
       </div>
     </div>
     )
